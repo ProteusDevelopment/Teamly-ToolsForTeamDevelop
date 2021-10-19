@@ -1,0 +1,38 @@
+<!-- MENU BLOCK -->
+<div class="menu l-nav d-flex flex-column flex-shrink-0 bg-light">
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <li class="nav-item">
+            <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                Task board
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                Bug tracker
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- MENU BUTTON -->
+<div class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none text-start">
+    <button type="button" class="btn" onclick="toggleMenuBlock()">Menu</button>
+</div>
+
+
+============================== CSS ====================
+.menu {
+    visibility: hidden;
+    width: 4.5rem;
+}
+
+
+=============================== JS ====================
+let _menuBlockShowed = document.querySelector(".menu").style.visibility === "visible"
+
+function toggleMenuBlock()
+{
+    _menuBlockShowed = !_menuBlockShowed
+
+    document.querySelector(".menu").style.visibility = _menuBlockShowed ? "visible" : "hidden"
+}

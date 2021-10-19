@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Teamly!</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-grid.css" rel="stylesheet">
+	<link href="css/site.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+	<!-- HEADER -->
+	<div class="container-fluid">
+		<header class="align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom text-center">
+			<!-- TITLE HEADER -->
+			<div class="col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+				<a href="index.html" class="px-2 fs-3 text-decoration-none">Teamly</a>
+			</div>
+		</header>
+	</div>
+
+	<!-- MAIN -->
+	<main class="text-center py-5 m-auto w-25" style="display: block">
+		<form>
+			<h1 class="h3 mb-4 fw-lighter">Registration form</h1>
+			
+			<!-- EMAIL -->
+			<div title="Your email address" class="form-floating mb-2">
+				<input type="email" class="form-control" id="emailInput" placeholder="your_email@example.com" required>
+				<label for="emailInput">Email address</label>
+			</div>
+			
+			<!-- PHONE NUMBER -->
+			<div title="Your phone is proof that you are a real person" class="form-floating mb-2">
+				<input type="tel" class="form-control" id="phoneNumber" placeholder="+0 (000) 000-00-00" required>
+				<label for="phoneNumber">Phone number</label>
+			</div>
+			
+			<!-- PASSWORD -->
+			<div class="form-floating mb-2">
+				<input type="password" class="form-control" id="passwordInput" placeholder="your_password" required>
+				<label for="passwordInput">Password</label>
+			</div>
+			
+			<!-- PASSWORD CONFIRM -->
+			<div class="form-floating mb-3">
+				<input type="password" class="form-control" id="passwordConfirmInput" placeholder="your_password" required>
+				<label for="passwordConfirmInput">Password confirm</label>
+			</div>
+			
+			<!-- LICENSE AGREEMENT -->
+			<div class="form-check mt-3 mb-3">
+				<label>
+					<input type="checkbox" class="form-check-input" value="remember-me" required>
+					I accept the terms of the
+					<a href="license.html" class="link-primary" >license agreement</a>
+				</label>
+			</div>
+			
+			<button type="submit" class="btn btn-lg btn-primary mt-3 w-100">Register</button>
+		</form>
+	</main>
+
+	<!-- FOOTER -->
+	<div class="container-fluid">
+		<footer class="pt-3 mt-4">
+			<p class="text-center text-muted border-top pt-3 mt-3">&copy; 2021 Artyom Chernykh</p>
+		</footer>
+	</div>
+
+	<script src="js/site.js"></script>
+</body>
+</html>

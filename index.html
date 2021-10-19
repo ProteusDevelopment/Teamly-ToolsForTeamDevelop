@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Teamly</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-grid.css" rel="stylesheet">
+	<link href="css/site.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+	<!-- HEADER -->
+	<div class="container-fluid">
+		<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+			<!-- TITLE HEADER -->
+			<div class="col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+				<a href="index.html" class="px-2 fs-3 text-decoration-none">Teamly</a>
+			</div>
+			
+			<!-- AUTH BLOCK -->
+			<div class="col-md-3 text-center">
+				<button type="button" class="btn btn-outline-primary me-2" onclick="toggleLoginBlock()">Login</button>
+				<a href="register.html" class="btn btn-primary">Register</a>
+				
+				<!-- LOGIN BLOCK -->
+				<div class="login rounded-3 border text-center p-3 m-2">
+					<form>
+						<h1 class="h4 mb-3 fw-normal">Please login</h1>
+						
+						<!-- EMAIL -->
+						<div class="form-floating mb-1">
+							<input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required>
+							<label for="emailInput">Email address</label>
+						</div>
+						
+						<!-- PASSWORD -->
+						<div class="form-floating mb-1">
+							<input type="password" class="form-control" id="passwordInput" placeholder="Password" required>
+							<label for="passwordInput">Password</label>
+						</div>
+						
+						<!-- REMEMBER ME -->
+						<div class="form-check mb-3">
+							<label>
+								<input type="checkbox" value="remember-me"> Remember me
+							</label>
+						</div>
+						
+						<button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+					</form>
+				</div>
+			</div>
+		</header>
+	</div>
+
+	<!-- MAIN -->
+	<main class="d-flex flex-row justify-content-between">
+		<!-- MAIN BLOCK -->
+		<div class="mx-5">
+			<!-- TASK BOARD FEATURE -->
+			<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+				<div class="col-10 col-sm-8 col-lg-6">
+					<img src="images/board.png" class="d-block mx-lg-auto img-fluid border rounded-3 shadow-lg" alt="Task board screenshot" loading="lazy">
+				</div>
+				<div class="col-lg-6">
+					<h1 class="display-5 fw-bold lh-1 mb-3">Task board for your team</h1>
+					<p class="lead">A convenient task board will allow your team to deal exclusively with tasks, and we will take care of their organization!</p>
+					<div class="d-grid gap-1 d-md-flex justify-content-md-center">
+						<a href="register.html" class="btn btn-primary btn-lg px-4 me-md-2">
+							Try it for free
+						</a>
+					</div>
+				</div>
+			</div>
+			
+			<!-- BUG TRACKER FEATURE -->
+			<div class="row flex-lg-row align-items-center g-5 py-5 my-3">
+				<div class="col-10 col-sm-8 col-lg-6">
+					<img src="images/bugtracker.png" class="d-block mx-lg-auto img-fluid border rounded-3 shadow-lg" alt="Bug tracker screenshot" loading="lazy">
+				</div>
+				<div class="col-lg-6">
+					<h1 class="display-5 fw-bold lh-1 mb-3">Bug tracker for your developers and testers</h1>
+					<p class="lead">Develop, test, fix, test again, and finally: shut down - that's the best part!</p>
+					<div class="d-grid gap-1 d-md-flex justify-content-md-center">
+						<a href="register.html" class="btn btn-success btn-lg px-4 me-md-2">
+							It's free too!
+						</a>
+					</div>
+				</div>
+			</div>
+			
+			<!-- GIT FEATURE -->
+			<div class="row flex-lg-row-reverse align-items-center g-5 py-5 my-3">
+				<div class="col-10 col-sm-8 col-lg-6">
+					<img src="images/git.png" class="d-block mx-lg-auto img-fluid border rounded-3 shadow-lg" alt="Git support screenshot" loading="lazy">
+				</div>
+				<div class="col-lg-6">
+					<h1 class="display-5 fw-bold lh-1 mb-3">Git support</h1>
+					<p class="lead">Version control (Git) support is available in the application for easy tracking of commits and changes in branches. All that remains for your team is to sip some tea.</p>
+					<div class="d-grid gap-1 d-md-flex justify-content-md-center">
+						<a href="downloads.html" class="btn btn-warning btn-lg px-4 me-md-2">
+							Available in the app
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- FOOTER -->
+	<div class="container-fluid">
+		<footer class="pt-3 mt-4">
+			<p class="text-center text-muted border-top pt-3 mt-3">&copy; 2021 Artyom Chernykh</p>
+		</footer>
+	</div>
+
+	<script src="js/site.js"></script>
+</body>
+</html>
