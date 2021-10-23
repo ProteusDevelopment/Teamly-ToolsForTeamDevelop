@@ -1,60 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Teamly</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-	<link href="css/bootstrap.css" rel="stylesheet">
-	<link href="css/bootstrap-grid.css" rel="stylesheet">
-	<link href="css/site.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-	<!-- HEADER -->
-	<div class="container-fluid">
-		<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-			<!-- TITLE HEADER -->
-			<div class="col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-				<a href="index.html" class="px-2 fs-3 text-decoration-none">Teamly</a>
-			</div>
-			
-			<!-- AUTH BLOCK -->
-			<div class="col-md-3 text-center">
-				<button type="button" class="btn btn-outline-primary me-2" onclick="toggleLoginBlock()">Login</button>
-				<a href="register.html" class="btn btn-primary">Register</a>
-				
-				<!-- LOGIN BLOCK -->
-				<div class="login position-absolute bg-light rounded-3 border text-center p-3 m-2">
-					<form>
-						<h1 class="h4 mb-3 fw-normal">Please login</h1>
-						
-						<!-- EMAIL -->
-						<div class="form-floating mb-1">
-							<input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required>
-							<label for="emailInput">Email address</label>
-						</div>
-						
-						<!-- PASSWORD -->
-						<div class="form-floating mb-1">
-							<input type="password" class="form-control" id="passwordInput" placeholder="Password" required>
-							<label for="passwordInput">Password</label>
-						</div>
-						
-						<!-- REMEMBER ME -->
-						<div class="form-check mb-3">
-							<label>
-								<input type="checkbox" value="remember-me"> Remember me
-							</label>
-						</div>
-						
-						<button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-					</form>
-				</div>
-			</div>
-		</header>
-	</div>
-
+<template>
 	<!-- MAIN -->
 	<main class="d-flex flex-row justify-content-between">
 		<!-- MAIN BLOCK -->
@@ -74,7 +18,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<!-- BUG TRACKER FEATURE -->
 			<div class="row flex-lg-row align-items-center g-5 py-5 my-3">
 				<div class="col-10 col-sm-8 col-lg-6">
@@ -90,7 +34,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<!-- GIT FEATURE -->
 			<div class="row flex-lg-row-reverse align-items-center g-5 py-5 my-3">
 				<div class="col-10 col-sm-8 col-lg-6">
@@ -108,14 +52,16 @@
 			</div>
 		</div>
 	</main>
+</template>
 
-	<!-- FOOTER -->
-	<div class="container-fluid">
-		<footer class="pt-3 mt-4">
-			<p class="text-center text-muted border-top pt-3 mt-3">&copy; 2021 Artyom Chernykh</p>
-		</footer>
-	</div>
+<script>
+// @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue'
 
-	<script src="js/site.js"></script>
-</body>
-</html>
+export default {
+  name: 'Home',
+  components: {
+    HelloWorld
+  }
+}
+</script>

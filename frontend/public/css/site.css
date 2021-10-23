@@ -1,0 +1,11 @@
+div header {
+    font-family: 'Noto Sans Mono', monospace;
+}
+
+.login {
+    visibility: hidden;
+}
+
+div footer {
+    font-family: 'Noto Sans Mono', monospace;
+}
