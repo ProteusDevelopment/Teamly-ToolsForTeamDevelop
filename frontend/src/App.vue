@@ -4,13 +4,13 @@
       <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <!-- TITLE HEADER -->
         <div class="col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <a href="index.html" class="px-2 fs-3 text-decoration-none">Teamly</a>
+          <router-link :to="{name: 'Home'}" class="px-2 fs-3 text-decoration-none">Teamly</router-link>
         </div>
 
         <!-- AUTH BLOCK -->
-        <div class="col-md-3 text-center">
+        <div class="col-md-3 text-center" v-if="!['Register'].includes(this.$route.name)">
           <button type="button" class="btn btn-outline-primary me-2" onclick="toggleLoginBlock()">Login</button>
-          <a href="register.html" class="btn btn-primary">Register</a>
+          <router-link :to="{name: 'Register'}" class="btn btn-primary">Register</router-link>
 
           <!-- LOGIN BLOCK -->
           <div class="login position-absolute bg-light rounded-3 border text-center p-3 m-2">

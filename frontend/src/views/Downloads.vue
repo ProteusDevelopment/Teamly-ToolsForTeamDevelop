@@ -8,7 +8,7 @@
 					Register in the system and get the Teamly app: like the web version, but much better!
 					Git support, offline work, productivity and integration: you can get it all right now!
 				</p>
-				<a href="register.html" class="btn btn-primary">Try it now!</a>
+				<router-link :to="{name: 'Register'}" class="btn btn-primary">Try it now!</router-link>
 			</div>
 			<div class="overflow-hidden py-4">
 				<div class="container px-5">
@@ -21,6 +21,6 @@
 
 <script>
 export default {
-  name: "Downloads"
+  name: "Downloads",
 }
 </script>

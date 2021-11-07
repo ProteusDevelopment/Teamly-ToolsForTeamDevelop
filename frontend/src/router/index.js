@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Downloads from "../views/Downloads.vue";
+import Register from "../views/Register";
+import Board from "@/views/Board";
 
 Vue.use(VueRouter)
 
@@ -24,6 +26,17 @@ const routes = [
     path: '/downloads',
     name: 'Downloads',
     component: Downloads
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+
+  {
+    path: '/board',
+    name: 'Board',
+    component: Board
   }
 ]
 
