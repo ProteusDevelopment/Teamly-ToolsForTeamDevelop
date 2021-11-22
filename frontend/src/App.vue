@@ -9,13 +9,13 @@
 
         <!-- AUTH BLOCK -->
         <div class="col-md-3 text-center" v-if="!['Register'].includes(this.$route.name)">
-          <button type="button" class="btn btn-outline-primary me-2" onclick="toggleLoginBlock()">Login</button>
-          <router-link :to="{name: 'Register'}" class="btn btn-primary">Register</router-link>
+          <button type="button" class="btn btn-outline-primary me-2" onclick="toggleLoginBlock()">{{ this.$tr('Login') }}</button>
+          <router-link :to="{name: 'Register'}" class="btn btn-primary">{{ this.$tr('Register') }}</router-link>
 
           <!-- LOGIN BLOCK -->
           <div class="login position-absolute bg-light rounded-3 border text-center p-3 m-2">
             <form>
-              <h1 class="h4 mb-3 fw-normal">Please login</h1>
+              <h1 class="h4 mb-3 fw-normal">{{ this.$tr('Please login') }}</h1>
 
               <!-- EMAIL -->
               <div class="form-floating mb-1">
