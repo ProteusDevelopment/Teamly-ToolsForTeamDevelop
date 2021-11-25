@@ -10,6 +10,7 @@ public class TeamlyApplication
 {
 	public static void main(String[] args)
 	{
+		/*
 		String url = "jdbc:mysql://localhost:3306/teamlydb";
 		String username = "root";
 		String password = "superpass321!";
@@ -34,6 +35,7 @@ public class TeamlyApplication
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		*/
 
 		SpringApplication.run(TeamlyApplication.class, args);
 	}
