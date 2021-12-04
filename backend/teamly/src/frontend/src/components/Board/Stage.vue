@@ -1,8 +1,8 @@
 <template>
   <div class="border rounded m-3 p-1 text-center" style="width: 250px">
-    <p>{{ category.name }}</p>
+    <p>{{ stage.name }}</p>
     <div>
-      <div v-for="task in category.tasks">
+      <div v-for="task in stage.tasks">
         <Task :task="task"></Task>
       </div>
     </div>
@@ -12,8 +12,8 @@
 <script>
 import Task from "@/components/Board/Task";
 export default {
-  name: "Category",
+  name: "Stage",
   components: {Task},
-  props: ['category']
+  props: ['stage']
 }
 </script>

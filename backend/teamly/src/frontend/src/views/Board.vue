@@ -1,51 +1,32 @@
 <template>
   <div class="d-flex">
-    <div v-for="category in categories">
-      <Category :category="category"></Category>
+    <div v-for="stage in data.stages">
+      <Stage :stage="stage"></Stage>
     </div>
   </div>
 </template>
 
 <script>
-import Category from "@/components/Board/Category";
+import Stage from "@/components/Board/Stage";
+import axios from "axios"
+
 export default {
   name: "Board",
-  components: {Category},
+  components: {Stage},
   data() {
     return {
-      categories: [
-        {
-          name: "Develop",
-          tasks: [
-            {
-              name: "Initialize",
-              description: "Made initialize version.",
-              expanded: false
-            },
-            {
-              name: "Vue integrity",
-              description: "Integrates vue framework.",
-              expanded: false
-            },
-            {
-              name: "Docker integrity",
-              description: "This task creates for test very long description.",
-              expanded: false
-            }
-          ]
-        },
-        {
-          name: "Release",
-          tasks: [
-            {
-              name: "Build",
-              description: "Build release version.",
-              expanded: false
-            }
-          ]
-        }
-      ]
+      data: []
     }
+  },
+
+  created() {
+    this.$http.get("/boards/1")
+    .then(response => {
+      this.data = response.data
+    })
+    .catch(e => {
+
+    })
   }
 }
 </script>

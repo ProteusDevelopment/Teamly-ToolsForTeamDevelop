@@ -1,31 +1,39 @@
 <template>
   <main class="text-center py-5 m-auto w-25" style="display: block">
-    <form>
+    <form @submit.prevent="onSubmit">
       <h1 class="h3 mb-4 fw-lighter">Registration form</h1>
 
-      <!-- EMAIL -->
-      <div title="Your email address" class="form-floating mb-2">
-        <input type="email" class="form-control" id="emailInput" placeholder="your_email@example.com" required>
-        <label for="emailInput">Email address</label>
+      <!-- Name -->
+      <div title="Your username" class="form-floating mb-2">
+        <input v-model="form.name" type="text" class="form-control" id="nameInput" placeholder="username" required>
+        <label for="nameInput">Username</label>
       </div>
 
-      <!-- PHONE NUMBER -->
-      <div title="Your phone is proof that you are a real person" class="form-floating mb-2">
-        <input type="tel" class="form-control" id="phoneNumber" placeholder="+0 (000) 000-00-00" required>
-        <label for="phoneNumber">Phone number</label>
+      <!-- Display name -->
+      <div title="Name, which other users can see" class="form-floating mb-2">
+        <input v-model="form.displayName" type="text" class="form-control" id="displayName" placeholder="username">
+        <label for="displayName">Display name</label>
+      </div>
+
+      <!-- EMAIL -->
+      <div title="Your email" class="form-floating mb-2">
+        <input v-model="form.email" type="email" class="form-control" id="email" placeholder="example@teamply.com" required>
+        <label for="email">Email</label>
       </div>
 
       <!-- PASSWORD -->
-      <div class="form-floating mb-2">
-        <input type="password" class="form-control" id="passwordInput" placeholder="your_password" required>
+      <div class="form-floating mb-3">
+        <input v-model="form.password" type="password" class="form-control" id="passwordInput" placeholder="your_password" required>
         <label for="passwordInput">Password</label>
       </div>
 
       <!-- PASSWORD CONFIRM -->
+      <!--
       <div class="form-floating mb-3">
         <input type="password" class="form-control" id="passwordConfirmInput" placeholder="your_password" required>
         <label for="passwordConfirmInput">Password confirm</label>
       </div>
+      -->
 
       <!-- LICENSE AGREEMENT -->
       <div class="form-check mt-3 mb-3">
@@ -42,7 +50,42 @@
 </template>
 
 <script>
+import axios from "axios"
+import qs from "querystring"
+
 export default {
-  name: "Register"
+  name: "Register",
+
+  data() {
+    return {
+      form: {
+        name: null,
+        displayName: null,
+        email: null,
+        password: null
+      }
+    }
+  },
+
+  methods: {
+    onSubmit() {
+      this.$http.post(
+        "/users/register",
+        qs.stringify(this.form),
+        {
+          dataType: "x-www-form-urlencoded",
+          headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
+      .then(response => {
+        if (response.data === "Success")
+          this.$router.push({
+            name: "Home"
+          })
+      })
+      .catch(e => {
+
+      })
+    }
+  }
 }
 </script>

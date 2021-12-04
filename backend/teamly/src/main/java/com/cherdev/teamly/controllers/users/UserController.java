@@ -4,6 +4,7 @@ import com.cherdev.teamly.entities.users.User;
 import com.cherdev.teamly.repositories.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +32,7 @@ public class UserController
         return userRepository.findById(id).orElse(null);
     }
 
-    @GetMapping("/login")
+    @GetMapping(value = "/login")
     public ResponseEntity<String> login(@RequestParam String name,
                                         @RequestParam String password)
     {
@@ -52,23 +53,18 @@ public class UserController
         return new ResponseEntity<>("Success", HttpStatus.OK);
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestParam String name,
-                                           @RequestParam(required = false) String displayName,
-                                           @RequestParam String email,
-                                           @RequestParam String password)
+    @PostMapping(value = "/register", consumes = { MediaType.APPLICATION_FORM_URLENCODED_VALUE })
+    public ResponseEntity<String> register(User user)
     {
-        User user = userRepository.findByName(name);
+        User findedUser = userRepository.findByName(user.getName());
 
-        if (user != null)
+        if (findedUser != null)
         {
             return new ResponseEntity<>("User already contains", HttpStatus.BAD_REQUEST);
         }
         else
         {
-            User newUser = new User(name, displayName, email, password);
-
-            userRepository.saveAndFlush(newUser);
+            userRepository.saveAndFlush(user);
         }
 
         return new ResponseEntity<>("Success", HttpStatus.CREATED);

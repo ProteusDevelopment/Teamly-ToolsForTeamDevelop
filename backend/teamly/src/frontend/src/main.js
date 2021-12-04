@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import i18n from './i18n'
+import axios from "axios"
 
 Vue.config.productionTip = false
 
@@ -19,6 +20,9 @@ Vue.locales = {
   },
   'Email address': {
     'ru': 'Адрес эл. почты'
+  },
+  'Logout': {
+    'ru': 'Выйти'
   }
 }
 
@@ -31,6 +35,10 @@ Vue.prototype.$tr = (str) => {
   }
   return str
 }
+
+Vue.prototype.$http = axios.create({
+  baseURL: "http://localhost:8080/api"
+})
 
 new Vue({
   router,

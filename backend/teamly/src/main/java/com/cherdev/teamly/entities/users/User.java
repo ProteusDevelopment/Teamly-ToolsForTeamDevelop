@@ -1,5 +1,7 @@
 package com.cherdev.teamly.entities.users;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -56,5 +58,30 @@ public class User
     public String getPassword()
     {
         return password;
+    }
+
+    public void setId(long id)
+    {
+        this.id = id;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setDisplayName(String displayName)
+    {
+        this.displayName = displayName;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
     }
 }

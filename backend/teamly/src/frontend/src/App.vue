@@ -8,24 +8,24 @@
         </div>
 
         <!-- AUTH BLOCK -->
-        <div class="col-md-3 text-center" v-if="!['Register'].includes(this.$route.name)">
+        <div class="col-md-3 text-center" v-if="!['Register'].includes(this.$route.name) && !this.isLogged">
           <button type="button" class="btn btn-outline-primary me-2" onclick="toggleLoginBlock()">{{ this.$tr('Login') }}</button>
           <router-link :to="{name: 'Register'}" class="btn btn-primary">{{ this.$tr('Register') }}</router-link>
 
           <!-- LOGIN BLOCK -->
           <div class="login position-absolute bg-light rounded-3 border text-center p-3 m-2">
-            <form>
+            <form @submit.prevent="onSubmit">
               <h1 class="h4 mb-3 fw-normal">{{ this.$tr('Please login') }}</h1>
 
-              <!-- EMAIL -->
+              <!-- NAME -->
               <div class="form-floating mb-1">
-                <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required>
-                <label for="emailInput">Email address</label>
+                <input v-model="form.name" type="text" class="form-control" id="nameInput" placeholder="username" required>
+                <label for="nameInput">Username</label>
               </div>
 
               <!-- PASSWORD -->
               <div class="form-floating mb-1">
-                <input type="password" class="form-control" id="passwordInput" placeholder="Password" required>
+                <input v-model="form.password" type="password" class="form-control" id="passwordInput" placeholder="Password" required>
                 <label for="passwordInput">Password</label>
               </div>
 
@@ -39,6 +39,10 @@
               <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
             </form>
           </div>
+        </div>
+
+        <div class="col-md-3 text-center" v-if="!['Register'].includes(this.$route.name) && this.isLogged">
+          <button type="button" class="btn btn-outline-primary me-2" @click="logout">{{ this.$tr('Logout') }}</button>
         </div>
       </header>
     </div>
@@ -54,3 +58,40 @@
 		</div>
   </div>
 </template>
+
+<script>
+import qs from "querystring"
+
+export default {
+  data() {
+    return {
+      form: {
+        name: null,
+        password: null
+      },
+
+      isLogged: false
+    }
+  },
+
+  methods: {
+    onSubmit() {
+      this.$http.get("/users/login", {
+        params: this.form
+      })
+      .then(response => {
+        if (response.data === "Success") {
+          this.isLogged = true
+          this.$router.push({
+            name: "Home"
+          })
+        }
+      })
+    },
+
+    logout() {
+      this.isLogged = false
+    }
+  }
+}
+</script>
